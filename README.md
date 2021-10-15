@@ -66,6 +66,8 @@ const logins = await composeGetPastAndPresentIssueAssigneesLogins(octokit, {
 });
 ```
 
+**Note**: This plugin only retrieves the first 100 assign events. If you need to retrieve more than 100 assign events, please file an issue. I'm curious to learn about your use case. Retrieving more than 100 is a tad complicated, but not impossible.
+
 ## Options
 
 <table width="100%">
