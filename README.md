@@ -1,6 +1,6 @@
 # octokit-plugin-get-past-and-present-issue-assignees-logins
 
-> Retrieve an array of GitHub user logins that have been assigned to a given issue at some point
+> Retrieve an array of GitHub user logins that have been assigned to a given issue or pull request at some point
 
 [![@latest](https://img.shields.io/npm/v/octokit-plugin-get-past-and-present-issue-assignees-logins.svg)](https://www.npmjs.com/package/octokit-plugin-get-past-and-present-issue-assignees-logins)
 [![Build Status](https://github.com/gr2m/octokit-plugin-get-past-and-present-issue-assignees-logins/workflows/Test/badge.svg)](https://github.com/gr2m/octokit-plugin-get-past-and-present-issue-assignees-logins/actions?query=workflow%3ATest+branch%3Amain)
@@ -51,9 +51,19 @@ const octokit = new MyOctokit({ auth: "secret123" });
 const logins = await octokit.getPastAndPresentIssueAssigneesLogins({
   owner: "gr2m",
   repo: "octokit-plugin-get-past-and-present-issue-assignees-logins",
-  issue_number: 1,
+  number: 1,
 });
 // `logins` is `["gr2m", "gr2m-test"]`
+```
+
+If you want to utilize this plugin with an existing `octokit` instance, use `composeGetPastAndPresentIssueAssigneesLogins` instead
+
+```js
+const logins = await composeGetPastAndPresentIssueAssigneesLogins(octokit, {
+  owner: "gr2m",
+  repo: "octokit-plugin-get-past-and-present-issue-assignees-logins",
+  number: 1,
+});
 ```
 
 ## Options
@@ -75,17 +85,41 @@ const logins = await octokit.getPastAndPresentIssueAssigneesLogins({
   <tbody align=left valign=top>
     <tr>
       <th>
-        <code>option name</code>
+        <code>owner</code>
       </th>
       <th>
-        <code>option type</code>
+        <code>string</code>
       </th>
       <td>
-        <strong>Required.</strong> Description here
+        <strong>Required.</strong> Repository owner
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <code>repo</code>
+      </th>
+      <th>
+        <code>string</code>
+      </th>
+      <td>
+        <strong>Required.</strong> Repository name
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <code>number</code>
+      </th>
+      <th>
+        <code>number</code>
+      </th>
+      <td>
+        <strong>Required.</strong> Issue or pull request number
       </td>
     </tr>
   </tbody>
-</table>## Contributing
+</table>
+
+## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
 

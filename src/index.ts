@@ -1,14 +1,20 @@
 import { Octokit } from "@octokit/core";
 import { VERSION } from "./version";
 
-type Options = Record<string, unknown>;
+import { composeGetPastAndPresentIssueAssigneesLogins } from "./compose-get-past-and-present-issue-assignees-logins";
+export {
+  composeGetPastAndPresentIssueAssigneesLogins,
+  GetPastAndPresentIssueAssigneesLoginsOptions,
+} from "./compose-get-past-and-present-issue-assignees-logins";
 
 /**
  * @param octokit Octokit instance
- * @param options Options passed to Octokit constructor
  */
-export function getPastAndPresentIssueAssigneesLogins(
-  octokit: Octokit,
-  options: Options
-) {}
+export function getPastAndPresentIssueAssigneesLogins(octokit: Octokit) {
+  return {
+    getPastAndPresentIssueAssigneesLogins:
+      composeGetPastAndPresentIssueAssigneesLogins.bind(null, octokit),
+  };
+}
+
 getPastAndPresentIssueAssigneesLogins.VERSION = VERSION;
