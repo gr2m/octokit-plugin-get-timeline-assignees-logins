@@ -1,8 +1,8 @@
 import { Octokit } from "@octokit/core";
 
-import { getPastAndPresentIssueAssigneesLogins } from "../src";
+import { getTimelineAssigneesLogins } from "../src";
 
-const TestOctokit = Octokit.plugin(getPastAndPresentIssueAssigneesLogins);
+const TestOctokit = Octokit.plugin(getTimelineAssigneesLogins);
 
 describe("README example", () => {
   it("happy path", async () => {
@@ -49,7 +49,7 @@ describe("README example", () => {
       };
     });
 
-    const result = await octokit.getPastAndPresentIssueAssigneesLogins({
+    const result = await octokit.getTimelineAssigneesLogins({
       owner: "octokit",
       repo: "rest",
       number: 1,

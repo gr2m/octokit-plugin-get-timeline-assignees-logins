@@ -1,20 +1,22 @@
 import { Octokit } from "@octokit/core";
 import { VERSION } from "./version";
 
-import { composeGetPastAndPresentIssueAssigneesLogins } from "./compose-get-past-and-present-issue-assignees-logins";
+import { composeGetTimelineAssigneesLogins } from "./compose-get-timeline-assignees-logins";
 export {
-  composeGetPastAndPresentIssueAssigneesLogins,
-  GetPastAndPresentIssueAssigneesLoginsOptions,
-} from "./compose-get-past-and-present-issue-assignees-logins";
+  composeGetTimelineAssigneesLogins,
+  GetTimelineAssigneesLoginsOptions,
+} from "./compose-get-timeline-assignees-logins";
 
 /**
  * @param octokit Octokit instance
  */
-export function getPastAndPresentIssueAssigneesLogins(octokit: Octokit) {
+export function getTimelineAssigneesLogins(octokit: Octokit) {
   return {
-    getPastAndPresentIssueAssigneesLogins:
-      composeGetPastAndPresentIssueAssigneesLogins.bind(null, octokit),
+    getTimelineAssigneesLogins: composeGetTimelineAssigneesLogins.bind(
+      null,
+      octokit
+    ),
   };
 }
 
-getPastAndPresentIssueAssigneesLogins.VERSION = VERSION;
+getTimelineAssigneesLogins.VERSION = VERSION;

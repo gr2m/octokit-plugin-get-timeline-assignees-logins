@@ -31,15 +31,15 @@ const QUERY = `
   }
 `;
 
-export type GetPastAndPresentIssueAssigneesLoginsOptions = {
+export type GetTimelineAssigneesLoginsOptions = {
   owner: string;
   repo: string;
   number: number;
 };
 
-export async function composeGetPastAndPresentIssueAssigneesLogins(
+export async function composeGetTimelineAssigneesLogins(
   octokit: Octokit,
-  options: GetPastAndPresentIssueAssigneesLoginsOptions
+  options: GetTimelineAssigneesLoginsOptions
 ) {
   const result = await octokit.graphql<{
     repository: {

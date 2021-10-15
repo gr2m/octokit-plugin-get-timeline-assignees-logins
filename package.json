@@ -1,5 +1,5 @@
 {
-  "name": "octokit-plugin-get-past-and-present-issue-assignees-logins",
+  "name": "octokit-plugin-get-timeline-assignees-logins",
   "version": "0.0.0-development",
   "description": "Retrieve an array of GitHub user logins that have been assigned to a given issue or pull request at some point",
   "scripts": {
@@ -9,7 +9,7 @@
     "pretest": "npm run -s lint",
     "test": "jest --coverage"
   },
-  "repository": "github:gr2m/octokit-plugin-get-past-and-present-issue-assignees-logins",
+  "repository": "github:gr2m/octokit-plugin-get-timeline-assignees-logins",
   "keywords": [
     "github",
     "api",

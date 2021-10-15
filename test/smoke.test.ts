@@ -1,29 +1,25 @@
 import { Octokit } from "@octokit/core";
 
 import {
-  getPastAndPresentIssueAssigneesLogins,
-  composeGetPastAndPresentIssueAssigneesLogins,
+  getTimelineAssigneesLogins,
+  composeGetTimelineAssigneesLogins,
 } from "../src";
 
 describe("Smoke test", () => {
-  it("{ getPastAndPresentIssueAssigneesLogins } export is a function", () => {
-    expect(getPastAndPresentIssueAssigneesLogins).toBeInstanceOf(Function);
+  it("{ getTimelineAssigneesLogins } export is a function", () => {
+    expect(getTimelineAssigneesLogins).toBeInstanceOf(Function);
   });
-  it("{ composeGetPastAndPresentIssueAssigneesLogins } export is a function", () => {
-    expect(composeGetPastAndPresentIssueAssigneesLogins).toBeInstanceOf(
-      Function
-    );
+  it("{ composeGetTimelineAssigneesLogins } export is a function", () => {
+    expect(composeGetTimelineAssigneesLogins).toBeInstanceOf(Function);
   });
 
-  it("getPastAndPresentIssueAssigneesLogins.VERSION is set", () => {
-    expect(getPastAndPresentIssueAssigneesLogins.VERSION).toEqual(
-      "0.0.0-development"
-    );
+  it("getTimelineAssigneesLogins.VERSION is set", () => {
+    expect(getTimelineAssigneesLogins.VERSION).toEqual("0.0.0-development");
   });
 
   it("Loads plugin", () => {
     expect(() => {
-      const TestOctokit = Octokit.plugin(getPastAndPresentIssueAssigneesLogins);
+      const TestOctokit = Octokit.plugin(getTimelineAssigneesLogins);
       new TestOctokit();
     }).not.toThrow();
   });
